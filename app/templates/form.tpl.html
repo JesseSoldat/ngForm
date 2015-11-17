@@ -1,0 +1,18 @@
+<div>
+  <h2>Contact Us</h2>
+  <form ng-submit="vm.addUser(user)">
+    <label>Name</label><br>
+    <input ng-model="user.name" type="text" placeholder="Sally Smith">
+    <br>
+    <label>Email</label><br>
+    <input ng-model="user.email" type="text" placeholder="ssmith@gmail.com">
+    <br>
+    <label>Website</label><br>
+    <input ng-model="user.website" type="text" placeholder="http://mssmith.net">
+    <br>
+    <label>Message</label><br>
+    <textarea ng-model="user.message" placeholder="A friendly message......."></textarea>
+    <br>
+    <button>Submit</button>
+  </form>
+</div>
