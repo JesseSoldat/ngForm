@@ -32,11 +32,12 @@ let FormController = function(PARSE, FormService, $rootScope, $scope) {
 //-----------------------------------------------
 //Validate email field
   let validateEmail = function(newVal) {
+    let email = newVal.includes('@');
     // console.log(newVal);
-    if(newVal.length > 0) {
+    if(email === true) {
       vm.errMsg3 = 'Thanks';
     } else {
-      vm.errMsg4 = 'Please enter your email!';
+      vm.errMsg4 = 'Please enter a valid email!';
     }
     
   };
@@ -50,10 +51,12 @@ let FormController = function(PARSE, FormService, $rootScope, $scope) {
   //Validate website field
   let validateWeb = function(newVal) {
     // console.log(newVal);
-    if(newVal.length > 0) {
+    let http = newVal.includes('http://');
+    let https = newVal.includes('https://');
+    if(http === true || https === true) {
       vm.errMsg5 = 'Thanks';
     } else {
-      vm.errMsg6 = 'Please enter your website!';
+      vm.errMsg6 = 'Please enter a valid website!';
     }
     
   };
@@ -68,6 +71,7 @@ let FormController = function(PARSE, FormService, $rootScope, $scope) {
   //Validate message field
   let validateMessage = function(newVal) {
     // console.log(newVal);
+
     if(newVal.length > 0) {
       vm.errMsg7 = 'Thanks';
     } else {

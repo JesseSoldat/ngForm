@@ -74,11 +74,12 @@ var FormController = function FormController(PARSE, FormService, $rootScope, $sc
   //-----------------------------------------------
   //Validate email field
   var validateEmail = function validateEmail(newVal) {
+    var email = newVal.includes('@');
     // console.log(newVal);
-    if (newVal.length > 0) {
+    if (email === true) {
       vm.errMsg3 = 'Thanks';
     } else {
-      vm.errMsg4 = 'Please enter your email!';
+      vm.errMsg4 = 'Please enter a valid email!';
     }
   };
   //Watch email field
@@ -90,10 +91,12 @@ var FormController = function FormController(PARSE, FormService, $rootScope, $sc
   //Validate website field
   var validateWeb = function validateWeb(newVal) {
     // console.log(newVal);
-    if (newVal.length > 0) {
+    var http = newVal.includes('http://');
+    var https = newVal.includes('https://');
+    if (http === true || https === true) {
       vm.errMsg5 = 'Thanks';
     } else {
-      vm.errMsg6 = 'Please enter your website!';
+      vm.errMsg6 = 'Please enter a valid website!';
     }
   };
   //Watch name field
@@ -106,6 +109,7 @@ var FormController = function FormController(PARSE, FormService, $rootScope, $sc
   //Validate message field
   var validateMessage = function validateMessage(newVal) {
     // console.log(newVal);
+
     if (newVal.length > 0) {
       vm.errMsg7 = 'Thanks';
     } else {
