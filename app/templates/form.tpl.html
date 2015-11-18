@@ -1,17 +1,26 @@
-<div>
-  <h2>Contact Us</h2>
-  <form ng-submit="vm.addUser(user)">
+<div class="formWrapper">
+  <h2>{{vm.title}}</h2>
+  <form class="form" ng-submit="vm.addUser(user)">
     <label>Name</label><br>
     <input ng-model="user.name" type="text" placeholder="Sally Smith">
+    <h5>{{ vm.errMsg1 }}</h5>
+    <h4>{{ vm.errMsg2 }}</h4>
+
     <br>
     <label>Email</label><br>
     <input ng-model="user.email" type="text" placeholder="ssmith@gmail.com">
+    <h5>{{ vm.errMsg3 }}</h5>
+    <h4>{{ vm.errMsg4 }}</h4>
     <br>
     <label>Website</label><br>
     <input ng-model="user.website" type="text" placeholder="http://mssmith.net">
+    <h5>{{ vm.errMsg5 }}</h5>
+    <h4>{{ vm.errMsg6 }}</h4>
     <br>
     <label>Message</label><br>
     <textarea ng-model="user.message" placeholder="A friendly message......."></textarea>
+    <h5>{{ vm.errMsg7 }}</h5>
+    <h4>{{ vm.errMsg8 }}</h4>
     <br>
     <button>Submit</button>
   </form>

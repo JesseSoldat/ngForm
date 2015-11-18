@@ -1,8 +1,17 @@
-// Put any @imports here
-// See Readme for a list of supported ones
+@import 'foundation';
 
 body {
   background: #e2ebf3;
+}
+
+.formWrapper {
+  width: 500px;
+}
+h4 {
+  color: red;
+}
+h5 {
+  color: green;
 }
 
 

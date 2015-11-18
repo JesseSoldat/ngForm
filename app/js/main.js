@@ -46,18 +46,81 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FormController = function FormController(PARSE, FormService) {
+var FormController = function FormController(PARSE, FormService, $rootScope, $scope) {
 
   var vm = this;
 
+  vm.title = 'Contact Us';
+
   vm.addUser = function (obj) {
-    FormService.addUser(obj).then(function (res) {
-      console.log(res);
-    });
+    FormService.addUser(obj).then(function (res) {});
   };
+
+  //-----------------------------------------------
+  //Validate name field
+  var validateName = function validateName(newVal) {
+    console.log(newVal);
+    if (newVal.length > 0) {
+      vm.errMsg1 = 'Thanks';
+    } else {
+      vm.errMsg2 = 'Please enter your full name!';
+    }
+  };
+  //Watch name field
+  $scope.$watch('user.name', function (newVal, preVal) {
+    if (!newVal) return;
+    validateName(newVal);
+  });
+  //-----------------------------------------------
+  //Validate email field
+  var validateEmail = function validateEmail(newVal) {
+    // console.log(newVal);
+    if (newVal.length > 0) {
+      vm.errMsg3 = 'Thanks';
+    } else {
+      vm.errMsg4 = 'Please enter your email!';
+    }
+  };
+  //Watch email field
+  $scope.$watch('user.email', function (newVal, preVal) {
+    if (!newVal) return;
+    validateEmail(newVal);
+  });
+  //-----------------------------------------------
+  //Validate website field
+  var validateWeb = function validateWeb(newVal) {
+    // console.log(newVal);
+    if (newVal.length > 0) {
+      vm.errMsg5 = 'Thanks';
+    } else {
+      vm.errMsg6 = 'Please enter your website!';
+    }
+  };
+  //Watch name field
+  $scope.$watch('user.website', function (newVal, preVal) {
+    if (!newVal) return;
+    validateWeb(newVal);
+  });
+  //-----------------------------------------------
+
+  //Validate message field
+  var validateMessage = function validateMessage(newVal) {
+    // console.log(newVal);
+    if (newVal.length > 0) {
+      vm.errMsg7 = 'Thanks';
+    } else {
+      vm.errMsg8 = 'Please enter a message!';
+    }
+  };
+  //Watch message field
+  $scope.$watch('user.message', function (newVal, preVal) {
+    if (!newVal) return;
+    validateMessage(newVal);
+  });
+  //-----------------------------------------------
 };
 
-FormController.$inject = ['PARSE', 'FormService'];
+FormController.$inject = ['PARSE', 'FormService', '$rootScope', '$scope'];
 
 exports['default'] = FormController;
 module.exports = exports['default'];
@@ -97,7 +160,7 @@ _angular2['default'].module('app', ['ui.router']).config(_config2['default']).co
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FormService = function FormService($http, PARSE) {
+var FormService = function FormService($http, PARSE, $rootScope) {
 
   var url = PARSE.URL + 'classes/form';
 
@@ -115,7 +178,7 @@ var FormService = function FormService($http, PARSE) {
   };
 };
 
-FormService.$inject = ['$http', 'PARSE'];
+FormService.$inject = ['$http', 'PARSE', '$rootScope'];
 
 exports['default'] = FormService;
 module.exports = exports['default'];

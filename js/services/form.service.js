@@ -1,4 +1,4 @@
-let FormService = function($http, PARSE) {
+let FormService = function($http, PARSE, $rootScope) {
   
   let url = PARSE.URL + 'classes/form';
 
@@ -19,6 +19,6 @@ let FormService = function($http, PARSE) {
 
 };
 
-FormService.$inject = ['$http', 'PARSE'];
+FormService.$inject = ['$http', 'PARSE', '$rootScope'];
 
 export default FormService;
